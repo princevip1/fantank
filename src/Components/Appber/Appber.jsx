@@ -7,7 +7,7 @@ import { Feather, FontAwesome5 } from '@expo/vector-icons';
 const Appber = () => {
     return (
         <>
-            <HStack bg="transparent" px="1" py="3" justifyContent="space-between" alignItems="center" w="100%" >
+            <HStack bg="transparent"  py="3" justifyContent="space-between" alignItems="center" w="100%" >
                 <HStack>
                     <IconButton icon={<Feather name="menu" size={24} color="white" />} />
                 </HStack>
