@@ -4,19 +4,26 @@ import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 
 const FirstRoute = () => (
   <View style={{ backgroundColor: "#ff4081" }}>
-    <Text>Hello</Text>
+    <Text style={{ color:"white" }} >Hello</Text>
+  </View>
+);
+const SecondRoute = () => (
+  <View style={{ backgroundColor: "#ff4081" }}>
+    <Text style={{ color:"white" }} >Hello1</Text>
+  </View>
+);
+const ThirdRoute = () => (
+  <View style={{ backgroundColor: "#ff4081" }}>
+    <Text style={{ color:"white" }} >Hello2</Text>
   </View>
 );
 
-const SecondRoute = () => <View style={{ backgroundColor: "#673ab7" }} />;
-const ThirdRoute = () => <View style={{ backgroundColor: "#673ab7" }} />;
-const FourthRoute = () => <View style={{ backgroundColor: "#673ab7" }} />;
+
 
 const renderScene = SceneMap({
   first: FirstRoute,
   second: SecondRoute,
-  third:ThirdRoute,
-  fourth:FourthRoute
+  third:ThirdRoute
 });
 
 export default function TabViewExample() {
@@ -24,15 +31,14 @@ export default function TabViewExample() {
 
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: "first", title: "1mo." },
-    { key: "second", title: "3mo." },
-    { key: "third", title: "6mo." },
-    { key: "fourth", title: "All" },
+    { key: "first", title: "Picture" },
+    { key: "second", title: "Videos" },
+    { key: "third", title: "Music" },
   ]);
   const renderTabBar = (props) => (
     <TabBar
       {...props}
-      indicatorStyle={{ backgroundColor: "white" }}
+      indicatorStyle={{ backgroundColor: "transparent",justifyContent:"space-between" }}
       style={{ backgroundColor: "transparent" }}
     />
   );

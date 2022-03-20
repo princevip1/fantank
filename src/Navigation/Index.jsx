@@ -11,10 +11,58 @@ import CheckEmail from '../Screen/Auth/CheckEmail/CheckEmail';
 import ResetPasssword from '../Screen/Auth/ResetPassword/ResetPasssword';
 import AwesomeMessage from '../Screen/Auth/AwesomeMessage/AwesomeMessage';
 import ArtistPage from '../Screen/ArtistPage/ArtistPage';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+const Tab = createBottomTabNavigator();
 
 
 const Stack = createNativeStackNavigator();
+
+
+
+
+
+
+
+const ArtistStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" options={{
+        headerShown: false,
+      }} component={ArtistPage} />
+      <Stack.Screen name="Homex" options={{
+        headerShown: false,
+      }} component={ArtistPage} />
+    </Stack.Navigator>
+  )
+}
+
+
+const HomeStack = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home1" options={{
+        headerShown: false,
+      }} component={ArtistStack} />
+      <Tab.Screen name="Home2" options={{
+        headerShown: false,
+      }} component={ArtistStack} />
+      <Tab.Screen name="Home3" options={{
+        headerShown: false,
+      }} component={ArtistStack} />
+      <Tab.Screen name="Home4" options={{
+        headerShown: false,
+      }} component={ArtistStack} />
+      <Tab.Screen name="Home5" options={{
+        headerShown: false,
+      }} component={ArtistStack} />
+
+    </Tab.Navigator>
+  )
+}
+
+
+
 
 function Navigation() {
   return (
@@ -67,10 +115,6 @@ function Navigation() {
 
         },
         headerTintColor: '#fff',
-
-
-
-        //  headerShown : false,
       }} component={ResetPasssword} />
       <Stack.Screen name="awesomeMessage" options={{
         headerTitle: (props) => ( // App Logo
@@ -93,7 +137,7 @@ function Navigation() {
 
       <Stack.Screen options={{
         headerShown: false,
-      }} name="artistPage" component={ArtistPage} />
+      }} name="artistPage" component={HomeStack} />
     </Stack.Navigator>
 
   );
