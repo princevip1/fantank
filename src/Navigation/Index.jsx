@@ -12,6 +12,8 @@ import ResetPasssword from '../Screen/Auth/ResetPassword/ResetPasssword';
 import AwesomeMessage from '../Screen/Auth/AwesomeMessage/AwesomeMessage';
 import ArtistPage from '../Screen/ArtistPage/ArtistPage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Entypo } from '@expo/vector-icons';
+import { Icon } from 'native-base';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,9 +32,6 @@ const ArtistStack = () => {
       <Stack.Screen name="Home" options={{
         headerShown: false,
       }} component={ArtistPage} />
-      <Stack.Screen name="Homex" options={{
-        headerShown: false,
-      }} component={ArtistPage} />
     </Stack.Navigator>
   )
 }
@@ -41,7 +40,21 @@ const ArtistStack = () => {
 const HomeStack = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home1" options={{
+      <Tab.Screen name="Home" options={{
+         headerTitle: (props) => ( // App Logo
+         <Icon
+          // style={{ justifyContent: "space-between" }}
+          as={Entypo}
+          name={"dots-three-vertical"}
+          size="6"
+          color="white"
+        />
+        ),
+        headerStyle: {
+          backgroundColor: "black",
+
+        },
+        headerTintColor: '#fff',
         headerShown: false,
       }} component={ArtistStack} />
       <Tab.Screen name="Home2" options={{
