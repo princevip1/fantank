@@ -17,15 +17,28 @@ const Appber = () => {
       >
         <HStack>
           <IconButton icon={<Feather name="menu" size={24} color="white" />} />
+          <IconButton icon={<Feather name="menu" size={24} color="transparent" />} />
         </HStack>
         <HStack justifyContent="center">
           <Image source={require("../../assets/Logo-icon.png")} />
         </HStack>
         <HStack>
-          {!isUser ? (
+          {isUser ? (
             <>
-              <Button px={2} size="sm">Login</Button>
-              <Button style={{ color:"white" }}  variant="ghost"> SignUp</Button>
+              <Button
+                key={1}
+                size="sm"
+                onPress={() => setIsUser(false)}>
+                Login
+              </Button>
+              <Button
+                onPress={() => setIsUser(false)}
+                variant="Unstyled"
+                size="sm"
+                colorScheme="secondary">
+               <Text style={{ color:"white" }} > Sign Up</Text>
+              </Button>
+
             </>
           ) : (
             <>

@@ -6,6 +6,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Button, Divider, HStack, Icon, VStack } from "native-base";
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import MediaView from './MediaView'
+import GhraphTabs from "./GhraphTabs";
 
 const ArtistPage = () => {
     return (
@@ -40,7 +41,9 @@ const ArtistPage = () => {
                     <Text style={styles.catItem}>#Vocalist</Text>
 
                 </HStack>
-                {/* <TabViewExample /> */}
+
+                <GhraphTabs />
+                
                 <VStack space={5} style={{ backgroundColor: "rgba(69, 66, 67, 0.78)", paddingHorizontal: 35, paddingVertical: 15, borderRadius: 4 }} >
                     <HStack justifyContent="center" alignItems="center" space={4}>
                         <Text style={{ fontSize: 16, color: "white" }}> <Image source={require("../../assets/fitbit-token.png")} /> 25,000</Text>
