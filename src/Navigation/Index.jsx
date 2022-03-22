@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { View, Text, Image } from 'react-native';
-// import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignIn from '../Screen/Auth/SignIn';
 import OnBoarding from '../Screen/OnBoarding/Index';
@@ -13,7 +12,8 @@ import AwesomeMessage from '../Screen/Auth/AwesomeMessage/AwesomeMessage';
 import ArtistPage from '../Screen/ArtistPage/ArtistPage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo } from '@expo/vector-icons';
-import { Icon } from 'native-base';
+import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,25 +39,39 @@ const ArtistStack = () => {
 
 const HomeStack = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator tabBarOptions={{
+      activeTintColor: '#fff',
+      activeBackgroundColor: '#000',
+      inactiveBackgroundColor: '#000',
+      style: {
+        backgroundColor: '#000'
+      }
+    }} >
       <Tab.Screen name="Home" options={{
-         headerTitle: (props) => ( // App Logo
-         <Icon
-          // style={{ justifyContent: "space-between" }}
-          as={Entypo}
-          name={"dots-three-vertical"}
-          size="6"
-          color="white"
-        />
-        ),
-        headerStyle: {
-          backgroundColor: "black",
-
+        tabBarIcon: (tabInfo) => {
+          return (
+            // <Ionicons name="home-outline" size={24} color="black" />
+            <Ionicons
+              name="home-outline"
+              size={24}
+              color={tabInfo.focused ? "#A0A0A0" : "#A0A0A0"}
+            />
+          );
         },
-        headerTintColor: '#fff',
         headerShown: false,
       }} component={ArtistStack} />
       <Tab.Screen name="Home2" options={{
+
+        tabBarIcon: (tabInfo) => {
+          return (
+            // <Ionicons name="home-outline" size={24} color="black" />
+            <MaterialCommunityIcons
+              name="chart-line"
+              size={24}
+              color={tabInfo.focused ? "#A0A0A0" : "#A0A0A0"}
+            />
+          );
+        },
         headerShown: false,
       }} component={ArtistStack} />
       <Tab.Screen name="Home3" options={{

@@ -1,7 +1,7 @@
 import { Entypo } from "@expo/vector-icons";
-import { HStack, Icon, VStack, ScrollView } from "native-base";
+import { HStack, Icon, VStack, ScrollView, Stack, Center, Heading, View } from "native-base";
 import * as React from "react";
-import { useWindowDimensions, Text, Image, StyleSheet, TouchableNativeFeedback } from "react-native";
+import { useWindowDimensions, Text, StyleSheet, TouchableNativeFeedback, Image } from "react-native";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 
 const music = [
@@ -24,23 +24,26 @@ const GhraphTabs = () => {
     { key: "first", title: "1mo" },
     { key: "second", title: "3mo" },
     { key: "third", title: "6mo" },
+    { key: "third", title: "6mo" },
+    { key: "third", title: "6mo" },
   ]);
 
   const FirstRoute = () => (
-    <ScrollView>
-      <Text style={{ color: "white" }} >Hello</Text>
-    </ScrollView>
+    
+    <View>
+      <Image source={require('../../assets/artist/Graph.png')} />
+    </View>
   );
 
   const SecondRoute = () => (
-    <ScrollView>
-      <Text style={{ color: "white" }} >Hello</Text>
-    </ScrollView>
+    <View>
+      <Image source={require('../../assets/artist/Graph.png')} />
+    </View>
   );
   const ThirdRoute = () => (
-    <ScrollView>
-      <Text style={{ color: "white" }} >Hello</Text>
-    </ScrollView>
+    <View>
+    <Image source={require('../../assets/artist/Graph.png')} />
+  </View>
   );
 
   const renderScene = SceneMap({
@@ -51,13 +54,17 @@ const GhraphTabs = () => {
   const renderTabBar = (props) => (
     <TabBar
       {...props}
-      indicatorStyle={{ backgroundColor: "transparent", borderColor: "white", borderWidth: 2 }}
+      labelStyle={{ fontSize: 10 }}
+      indicatorContainerStyle={{}}
+      contentContainerStyle={{ marginTop:-50 }}
+      indicatorStyle={{ backgroundColor: "transparent", borderColor: "#378EF0", borderWidth: 1.5  }}
       style={{ backgroundColor: "transparent" }}
     />
   );
   return (
-    <VStack space={3}  >
-      <HStack justifyContent="space-between" w="70%">
+    <VStack space="2.5" mt="4" px="8">
+      <Stack justifyContent="space-between" direction="row" mb="2.5" mt="1.5" space={1}>
+
         <TabView
           renderTabBar={renderTabBar}
           navigationState={{ index, routes }}
@@ -65,11 +72,25 @@ const GhraphTabs = () => {
           onIndexChange={setIndex}
           initialLayout={{ width: layout.width }}
         />
-      </HStack>
-      <HStack justifyContent="space-between">
-        <Image style={{ width:70,height:80 }} source={require("../../assets/artist/badge preta_final-02 3.png")} />
-      </HStack>
+        <Image style={{ height: 80, width: 70,marginRight:-20 }} source={require("../../assets/artist/badge.png")} />
+
+      </Stack>
     </VStack>
+    // <VStack space={3}  >
+    //   <HStack justifyContent="space-between" >
+    //     <TabView
+    //       renderTabBar={renderTabBar}
+    //       navigationState={{ index, routes }}
+    //       renderScene={renderScene}
+    //       onIndexChange={setIndex}
+    //       initialLayout={{ width: layout.width }}
+    //     />
+    //   </HStack>
+    //   <HStack justifyContent="space-between" >
+    //     {/* <Image style={{ width: 70, height: 80 }} source={require("../../assets/artist/badge.png")} /> */}
+    //     <Text>Hello</Text>
+    //   </HStack>
+    // </VStack>
 
   );
 }

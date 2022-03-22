@@ -7,6 +7,8 @@ import { Button, Divider, HStack, Icon, VStack } from "native-base";
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import MediaView from './MediaView'
 import GhraphTabs from "./GhraphTabs";
+import { HW } from "../../Ulitilies/Helper";
+
 
 const ArtistPage = () => {
     return (
@@ -28,13 +30,8 @@ const ArtistPage = () => {
                         Lihat profil Niken Dian Rahma Dewani LinkedIn, komunitas
                         profesional...{" "}
                     </Text>
-                    <Text style={styles.location}>Los Angeles, CA </Text>
+                    <Text style={styles.location}>Los Angeles, CA . <Image source={require('../../assets/artist/usa-flag.png')} /> </Text>
                 </View>
-                <Text style={styles.catItem}>
-                    <Text>#Music</Text>
-                    <Text>#Pop</Text>
-                    <Text>#Vocalist</Text>
-                </Text>
                 <HStack alignItems="center" space={4}>
                     <Text style={styles.activeCatItem}>#Music</Text>
                     <Text style={styles.catItem}>#Pop</Text>
@@ -42,8 +39,10 @@ const ArtistPage = () => {
 
                 </HStack>
 
-                <GhraphTabs />
-                
+                <View >
+                    <GhraphTabs />
+                </View>
+
                 <VStack space={5} style={{ backgroundColor: "rgba(69, 66, 67, 0.78)", paddingHorizontal: 35, paddingVertical: 15, borderRadius: 4 }} >
                     <HStack justifyContent="center" alignItems="center" space={4}>
                         <Text style={{ fontSize: 16, color: "white" }}> <Image source={require("../../assets/fitbit-token.png")} /> 25,000</Text>
@@ -71,7 +70,7 @@ const ArtistPage = () => {
 
             </ImageBackground>
 
-            <View style={{ flex:1, width:"105%" , marginTop:20}} >
+            <View style={{ flex: 1, width: "105%", marginTop: 20 }} >
                 <MediaView />
             </View>
         </View>
@@ -101,9 +100,11 @@ const styles = StyleSheet.create({
     location: {
         fontSize: 14,
         color: "white",
+        marginVertical: 5
     },
     catItem: {
         color: "white",
+        marginVertical: 10
     },
     activeCatItem: {
         color: "#378EF0"
